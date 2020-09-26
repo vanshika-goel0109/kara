@@ -1,5 +1,8 @@
 from datetime import datetime
 import os
+import speech_recognition as sr
+import webbrowser as wb
+
 
 # Function to Store Appointments
 def store(date, purpose):
