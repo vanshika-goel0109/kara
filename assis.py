@@ -5,7 +5,7 @@ r2 = sr.Recognizer()
 
 #inputs for meeting reminder
 with sr.Microphone() as source:
-    r2.adjust_for_ambient_noise(source, duration=10)
+    r2.adjust_for_ambient_noise(source, duration=5)
     print('tell me the event please')
     audio = r2.listen(source)
     print(r2.recognize_google(audio))
@@ -17,4 +17,4 @@ def func():
         audio = r2.listen(source)
         print(r2.recognize_google(audio))
 
-    func()
+func()
