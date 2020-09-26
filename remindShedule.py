@@ -1,13 +1,37 @@
 from datetime import datetime
-import os
 from gtts import gTTS
+import speech_recognition as sr
+import webbrowser as wb
+import os
 
 language='en'
+r2 = sr.Recognizer()
 
 def getData():
     # Write the code to get the date and purpose here
     # Store them in date and pupose respectively
     # both must be of str type when they get stored
+    
+   with sr.Microphone() as source:#stores the purpose 
+     r2.adjust_for_ambient_noise(source, duration=5)
+     prg='tell me the event please'
+     event=gTTS(text=prg,lang=language,slow=false)
+     event.save("event.mp3")
+     os.system("start event.mp3")
+     print(prg)
+     purpose = r2.listen(source)
+     print(r2.recognize_google(purpose))
+    
+   with sr.Microphone() as source:#stores the date
+     r2.adjust_for_ambient_noise(source, duration=5)
+     dte='tell me date'
+     DATE=gTTS(text=dte,lang=language,slow=false)
+     DATE.save("DATE.mp3")
+     os.system("start DATE.mp3")
+     print(dte)
+     date = r2.listen(source)
+     print(r2.recognize_google(date))
+ 
 
 def store(date, purpose):
     f = open("sched.txt","a")
@@ -25,4 +49,3 @@ def read(schedList):
             output=gTTS(text=purpose,lang=language,slow=false)
             output.save("output.mp3")
             os.system("start output.mp3")
-            
