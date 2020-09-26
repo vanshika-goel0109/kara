@@ -21,6 +21,10 @@ def read(schedList):
     for sched in schedList:
         if now in sched:
             #inputs for meeting reminder
+            purpose=sched.split('#')
+            purpose=sched[1]
+            # Purpose is to be spoken out along with time
+            
             # The assistant telling the purpose part comes here
             
             with sr.Microphone() as source:
