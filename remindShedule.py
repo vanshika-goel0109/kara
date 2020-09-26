@@ -1,12 +1,10 @@
 from datetime import datetime
 import os
-import speech_recognition as sr
-import webbrowser as wb
+from gtts import gTTS
 
-r2 = sr.Recognizer()
+language='en'
 
 func()
-
 # Function to Store Appointments
 
 def store(date, purpose):
@@ -20,23 +18,7 @@ def read(schedList):
     
     for sched in schedList:
         if now in sched:
-            #inputs for meeting reminder
-            purpose=sched.split('#')
-            purpose=sched[1]
-            # Purpose is to be spoken out along with time
+            output=gTTS(text=purpose,lang=language,slow=false)
+            output.save("output.mp3")
+            os.system("start output.mp3")
             
-            # The assistant telling the purpose part comes here
-            
-            with sr.Microphone() as source:
-            r2.adjust_for_ambient_noise(source, duration=5)
-            print('tell me the event please')
-            purpose = r2.listen(source)
-            print(r2.recognize_google(purpose))
-            
-             # The assistant telling the date part comes here
-            with sr.Microphone() as source:
-            r2.adjust_for_ambient_noise(source, duration=5)
-            print('tell me date')
-            date = r2.listen(source)
-            print(r2.recognize_google(date))
- 
