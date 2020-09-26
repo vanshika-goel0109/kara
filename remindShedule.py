@@ -1,7 +1,6 @@
 from datetime import datetime
 from gtts import gTTS
 import speech_recognition as sr
-import webbrowser as wb
 import os
 
 language='en'
