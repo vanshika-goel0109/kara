@@ -30,14 +30,16 @@ def getData():
      print(dte)
      date = r2.listen(source)
      print(r2.recognize_google(date))
+     parseData(date,purpose)
  
+def parseData(date,purpose):
+  store(date,purpose)
 
 def store(date, purpose):
     f = open("sched.txt","a")
     f.append(date+"#"+purpose)
 
 def read(schedList):
-    
     now=datetime.now()
     now=now.strftime("%d%m%Y %H:%M")
     
