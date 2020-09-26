@@ -4,8 +4,10 @@ from gtts import gTTS
 
 language='en'
 
-func()
-# Function to Store Appointments
+def getData():
+    # Write the code to get the date and purpose here
+    # Store them in date and pupose respectively
+    # both must be of str type when they get stored
 
 def store(date, purpose):
     f = open("sched.txt","a")
