@@ -15,7 +15,7 @@ def getData():
    with sr.Microphone() as source:#stores the purpose 
      r2.adjust_for_ambient_noise(source, duration=5)
      prg='tell me the event please'
-     event=gTTS(text=prg,lang=language,slow=false)
+     event=gTTS(text=prg,lang=language,slow=False)
      event.save("event.mp3")
      os.system("start event.mp3")
      print(prg)
@@ -25,7 +25,7 @@ def getData():
    with sr.Microphone() as source:#stores the date
      r2.adjust_for_ambient_noise(source, duration=5)
      dte='tell me date'
-     DATE=gTTS(text=dte,lang=language,slow=false)
+     DATE=gTTS(text=dte,lang=language,slow=False)
      DATE.save("DATE.mp3")
      os.system("start DATE.mp3")
      print(dte)
@@ -49,3 +49,7 @@ def read(schedList):
             output=gTTS(text=purpose,lang=language,slow=false)
             output.save("output.mp3")
             os.system("start output.mp3")
+            
+getData()
+store()
+read()
