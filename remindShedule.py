@@ -18,6 +18,8 @@ def read(schedList):
     
     for sched in schedList:
         if now in sched:
+            purpose=sched.split('#')
+            purpose=purpose[1]
             output=gTTS(text=purpose,lang=language,slow=false)
             output.save("output.mp3")
             os.system("start output.mp3")
