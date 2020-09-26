@@ -14,13 +14,21 @@ def getData():
     
    with sr.Microphone() as source:#stores the purpose 
      r2.adjust_for_ambient_noise(source, duration=5)
-     print('tell me the event please')
+     prg='tell me the event please'
+     event=gTTS(text=prg,lang=language,slow=false)
+     event.save("event.mp3")
+     os.system("start event.mp3")
+     print(prg)
      purpose = r2.listen(source)
      print(r2.recognize_google(purpose))
     
    with sr.Microphone() as source:#stores the date
      r2.adjust_for_ambient_noise(source, duration=5)
-     print('tell me date')
+     dte='tell me date'
+     DATE=gTTS(text=dte,lang=language,slow=false)
+     DATE.save("DATE.mp3")
+     os.system("start DATE.mp3")
+     print(dte)
      date = r2.listen(source)
      print(r2.recognize_google(date))
  
