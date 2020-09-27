@@ -8,6 +8,10 @@ from kivy.uix.image import AsyncImage
 from kivy.core.window import Window
 from kivy.uix.floatlayout import FloatLayout
 
+import remindShedule
+import remindMedicine
+import os
+
 class myLayout(GridLayout):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
@@ -42,10 +46,14 @@ class myLayout(GridLayout):
     
     #this is function for meeting reminder one,add here you backend code that need to be perform
     def meeting_callback(self,instance):
-       
+       remindShedule.getData()
     #this is for medicine one
     def medicine_callback(self,instance):
-        
+        remindMedicine.getData()
+
+def runProcesses():
+    os.system('remindSchedule.py')
+    os.system('remindMedicine.py')
 
 class MykivyApp(App):
 
@@ -53,4 +61,5 @@ class MykivyApp(App):
         Window.clearcolor=(1,1,1,1)
         return myLayout()
 if __name__=='__main__':
-       MykivyApp().run()
+    runProcesses()
+    MykivyApp().run()
