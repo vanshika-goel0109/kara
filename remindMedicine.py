@@ -12,7 +12,7 @@ def getData():
     # both must be of str type when they get stored
     
    with sr.Microphone() as source:#stores the purpose 
-     prg='tell me the event please'
+     prg='What medicine do you need to take'
      print(prg)
      event=gTTS(text=prg,lang=language,slow=False)
      event.save("event.mp3")
@@ -22,7 +22,7 @@ def getData():
      print(r2.recognize_google(purpose))
     
    with sr.Microphone() as source:#stores the date
-     dte='tell me date'
+     dte='When do you need to take it'
      print(dte)
      DATE=gTTS(text=dte,lang=language,slow=False)
      DATE.save("DATE.mp3")
